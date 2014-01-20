@@ -1,0 +1,50 @@
+
+<model xmlns="http://ns.adobe.com/Fiber/1.0">
+  <annotation name="ActionScriptGeneration">
+    <item name="FullyQualifyReferences">true</item>
+  </annotation>
+  <service name="ActionCmdbAction">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">RemoteObject</item>
+      <item name="Package">com.demo.action</item>
+      <item name="Destination">action.CmdbAction</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="contextRoot">/demo</item>
+      <item name="rootUrl">http://localhost:8080/demo/</item>
+      <item name="LINKED_FILE"></item>
+      <item name="ABSOLUTE_ENDPOINT">http://localhost:8080/demo/messagebroker/amf</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">BlazeDS</item>
+    </annotation>
+    <function name="query" return-type="CMDB_ENTITY">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">string</item>
+        <item name="returnType">CMDB_ENTITY</item>
+      </annotation>
+      <parameter name="arg0" type="string"/>
+    </function>
+  </service>
+  <entity name="CMDB_ENTITY">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">CMDB_ENTITY</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="RemoteClass">com.demo.bean.CMDB_ENTITY</item>
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">ActionCmdbAction</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <property name="res_code" type="string"/>
+    <property name="ci_code" type="string"/>
+  </entity>
+</model>
